@@ -1,0 +1,8 @@
+{
+    "products":[{"imagePath":"http://assets.myntassets.com/v1/images/style/properties/b195b911f558c0232e22849d1ca73193_images.jpg",
+    "name":"adidas ranger", 
+    "Description":"good sports shoe",
+    "price":25,
+    "quantity":4}
+    ]
+}
