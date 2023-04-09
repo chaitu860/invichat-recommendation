@@ -1,6 +1,7 @@
 import "./App.css";
 import Hero from "./components/Hero";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 import Navbar from "./components/Navbar.js";
 import Partners from "./components/Partners";
 import Features from "./components/Features";
@@ -9,6 +10,8 @@ import ProductList from "./components/ProductList";
 import Contact from "./components/Contact";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
+
 import { Grid } from "@mui/material";
 import { display } from "@mui/system";
 //  C:\Users\Chait\Documents\uda\InviChat\api> npx json-server --watch 
@@ -18,9 +21,13 @@ function App() {
   const [isLoggedin,setLogin]=useState(false);
 
   const[showPage,setPage]=useState(false);
+  const[signedUp,setSingup]=useState(false);
+
+  const [main_product,setProdId]=useState(2697)
+
   const [DataisLoaded, setDataLoaded] = useState(false);
 // json-server --watch db.json --port 8000
-  const main_product="2699";
+  //const main_product="2699";
   useEffect(() => {
     function fetchProducts() {
       axios
@@ -108,7 +115,16 @@ function App() {
     else if(showPage){
       return(
         <div>
-          <Login setRec={()=>setLogin(true)}/>
+          <Login setRec={()=>setLogin(true)} setPro={()=>setProdId(2699)}/>
+          
+        </div>
+        
+      )
+    }
+    else if(signedUp){
+      return(
+        <div>
+          <Signup setRec={()=>setLogin(true) } setPro={()=>setProdId(2699)}/>
           
         </div>
         
@@ -127,7 +143,7 @@ function App() {
       <div>
       <button class="text-white bg-blue-500 btn hover:bg-blue-600 font-poppins"
           onClick={()=>
-          setPage(true)
+          setSingup(true)
           
           }
           >
