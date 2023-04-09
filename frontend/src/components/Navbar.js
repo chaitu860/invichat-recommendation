@@ -38,9 +38,13 @@ export default function Navbar() {
           </a>
         </div>
         <div>
-          <button class="text-white bg-blue-500 btn hover:bg-blue-600 font-poppins">
-            Try it!
-          </button>
+          {/* <button class="text-white bg-blue-500 btn hover:bg-blue-600 font-poppins"
+          onClick={()=>
+          props.setReci()
+          }
+          >
+          Signup!
+          </button> */}
         </div>
       </div>
     </nav>

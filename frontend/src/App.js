@@ -1,5 +1,6 @@
 import "./App.css";
 import Hero from "./components/Hero";
+import Login from "./components/Login";
 import Navbar from "./components/Navbar.js";
 import Partners from "./components/Partners";
 import Features from "./components/Features";
@@ -9,13 +10,17 @@ import Contact from "./components/Contact";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Grid } from "@mui/material";
+import { display } from "@mui/system";
 //  C:\Users\Chait\Documents\uda\InviChat\api> npx json-server --watch 
 // database.jsons
 function App() {
   const [data, setData] = useState(null);
+  const [isLoggedin,setLogin]=useState(false);
+
+  const[showPage,setPage]=useState(false);
   const [DataisLoaded, setDataLoaded] = useState(false);
 // json-server --watch db.json --port 8000
-  const main_product="2697";
+  const main_product="2699";
   useEffect(() => {
     function fetchProducts() {
       axios
@@ -71,10 +76,13 @@ function App() {
       </Grid>
     );
   });
-
+    console.log(isLoggedin+" "+showPage);
+  if(isLoggedin){
   return (
+    
     <div className="App">
       <Navbar />
+      {/* console.log(showPage); */}
       {/* <Hero />
       <Features /> */} 
       <p id="prod-display" className="text-3xl font-inter text-black">
@@ -92,7 +100,51 @@ function App() {
       <Partners />
       <Contact />
     </div>
+    
+    
   );
+    }
+
+    else if(showPage){
+      return(
+        <div>
+          <Login setRec={()=>setLogin(true)}/>
+          
+        </div>
+        
+      )
+    }
+  else{
+    return(
+      <div className="App">
+      <Navbar />
+      {/* <Hero />
+      <Features /> */} 
+      <p id="prod-display" className="text-3xl font-inter text-black">
+        Welcome to&nbsp;
+        <text className=" italic text-blue-500">InviChat</text>&nbsp; we are happy to see you here
+      </p>
+      <div>
+      <button class="text-white bg-blue-500 btn hover:bg-blue-600 font-poppins"
+          onClick={()=>
+          setPage(true)
+          
+          }
+          >
+            Signup!
+          </button>
+      <button class="text-white bg-blue-500 btn hover:bg-blue-600 font-poppins"
+          onClick={()=>
+          setPage(true)
+          
+          }
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
