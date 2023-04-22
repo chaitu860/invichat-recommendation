@@ -42,7 +42,7 @@ const Login = (props) => {
                                 <label htmlFor="email-address">
                                     Email address::{'     '}
                                 </label>
-                                <input
+                                <input className='m-3'
                                     id="email-address"
                                     name="email"
                                     type="email"                                    
@@ -57,6 +57,7 @@ const Login = (props) => {
                                     Password::{'     '}
                                 </label>
                                 <input
+                                    className='m-3'
                                     id="password"
                                     name="password"
                                     type="password"                                    

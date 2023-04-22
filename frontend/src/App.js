@@ -32,11 +32,11 @@ function App() {
     function fetchProducts() {
       axios
       //http://localhost:3000/products
-        .get("http://localhost:3000/products")
+        .get("https://invichatstorage.blob.core.windows.net/invichatstorage/database.json")
         .then((response) => {
-          console.log(response.data);
+          console.log(response.data["products"]);
           console.log(products_rec["2697"])
-          setData(response.data);
+          setData(response.data["products"]);
           setDataLoaded(true);
         })
         .catch((error) => {
